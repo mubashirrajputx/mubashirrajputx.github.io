@@ -1,241 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rana Mubashir | Portfolio</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* Default Light Theme */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f7f6;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      background-color: #0d1b2a;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar h1 {
-      color: #ffffff;
-      font-size: 22px;
-    }
-    .nav-links a {
-      color: #e0e1dd;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #4cc9f0;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .hero-text {
-      max-width: 500px;
-    }
-    .hero-text h2 {
-      font-size: 38px;
-      color: #1d3557;
-      margin-bottom: 10px;
-    }
-    .hero-text p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .hero-img {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #1d3557;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    /* BUTTON STYLES */
-    .btn {
-      display: inline-block;
-      background-color: #1d3557;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 14px;
-      margin-top: 15px;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-    .btn:hover {
-      background-color: #457b9d;
-      transform: scale(1.05);
-    }
-
-    /* SKILLS & PROJECTS */
-    .skills-section, .projects-section {
-      padding: 40px 20px;
-      text-align: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-title {
-      font-size: 28px;
-      color: #1d3557;
-      margin-bottom: 30px;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background-color: #ffffff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-top: 4px solid #1d3557;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    }
-    .card h3 {
-      margin-bottom: 12px;
-      color: #1d3557;
-    }
-
-    /* FOOTER */
-    .footer {
-      background-color: #0d1b2a;
-      color: white;
-      text-align: center;
+      margin: 0;
       padding: 20px;
-      margin-top: 50px;
-    }
-    .footer-credit {
-      color: #e63946;
-      font-size: 14px;
-      margin-top: 5px;
+      background-color: #f4f6f9;
+      color: #333;
+      transition: background-color 0.4s, color 0.4s;
     }
 
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 20px;
-      }
+    /* Dark Theme Class */
+    .dark-theme {
+      background-color: #121212 !important;
+      color: #f1f1f1 !important;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .dark-theme header {
+      border-bottom-color: #333;
+    }
+
+    .theme-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Projects Grid */
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .project-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      width: 220px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .dark-theme .project-card {
+      background-color: #1e1e1e;
+      border-color: #444;
+      color: #fff;
+    }
+
+    .project-card h4 { margin-top: 0; color: #007bff; }
+    .dark-theme .project-card h4 { color: #4da3ff; }
+
+    /* Contact Section */
+    .contact-box {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #e9ecef;
+    }
+
+    .dark-theme .contact-box {
+      background-color: #242424;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <h1>Rana Mubashir</h1>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
+  <!-- 1. Header with Dark Mode Toggle -->
+  <header>
+    <div>
+      <h2 style="margin: 0;">Rana Mubashir 💻</h2>
+      <p style="margin: 5px 0 0 0; color: #666;">Web Developer & Graphic Designer</p>
     </div>
-  </div>
+    <button class="theme-btn" onclick="togglePortfolioTheme()">Mode Change 🌓</button>
+  </header>
 
-  <!-- HERO SECTION -->
-  <div class="hero" id="home">
-    <div class="hero-text">
-      <h2>Hi, I'm Rana Mubashir</h2>
-      <p>Welcome to my portfolio! I am an 17-year-old developer building modern web applications every single day.</p>
-      <a href="https://www.linkedin.com/in/mubashir-rajputx/" target="_blank" class="btn">Connect on LinkedIn 💙</a>
-    </div>
-    <img src="https://i.postimg.cc/MKGN1crX/IMG-20260630-WA0000.jpg" alt="Rana Mubashir" class="hero-img">
-  </div>
+  <!-- 2. Dynamic Projects Section -->
+  <section>
+    <h3>My Featured Projects 🚀</h3>
+    <button onclick="renderProjects()" style="padding: 6px 12px; cursor: pointer;">Load Projects via JS</button>
+    <div id="projectGrid" class="projects-container"></div>
+  </section>
 
-  <!-- SKILLS SECTION -->
-  <div class="skills-section" id="skills">
-    <h2 class="section-title">My Technical Skills ⚡</h2>
-    <div class="grid-container">
-      <div class="card">
-        <h3>Frontend Coding 💻</h3>
-        <p>HTML, CSS Layouts, Flexbox, & CSS Grid for fast responsive designs.</p>
-      </div>
-      <div class="card">
-        <h3>Version Control 🐙</h3>
-        <p>Git, GitHub repository management, and live site deployment via GitHub Pages.</p>
-      </div>
-      <div class="card">
-        <h3>Digital Productivity 📊</h3>
-        <p>Microsoft Office Suite, graphic layout designs, and web workflow optimization.</p>
-      </div>
-    </div>
-  </div>
+  <!-- 3. Interactive Contact Form -->
+  <section class="contact-box">
+    <h3>Get In Touch 📩</h3>
+    <input type="text" id="visitorName" oninput="updateLiveMessage()" placeholder="Apna Naam Likhien...">
+    <p><b>Live Preview:</b> Welcome <span id="previewName" style="color: #007bff; font-weight: bold;">Visitor</span>!</p>
+  </section>
 
-  <!-- FEATURED PROJECTS SECTION -->
-  <div class="projects-section" id="projects">
-    <h2 class="section-title">Featured Work 🚀</h2>
-    <div class="grid-container">
-      
-      <div class="card">
-        <div>
-          <h3>Personal Developer Portfolio</h3>
-          <p>Fully responsive website hosted live on GitHub Pages with dark theme accents and CSS Grid layout.</p>
-        </div>
-        <a href="#home" class="btn">View Live Page 🌐</a>
-      </div>
+  <script>
+    // Theme Switcher Logic (Day 27 Concept)
+    function togglePortfolioTheme() {
+      document.body.classList.toggle("dark-theme");
+    }
 
-      <div class="card">
-        <div>
-          <h3>Pharmacy Marketing Graphics</h3>
-          <p>Designed custom promotional banners and visual layouts for pharmacy branding.</p>
-        </div>
-        <a href="https://www.linkedin.com/in/mubashirrajput" target="_blank" class="btn">View Graphics Design 🎨</a>
-      </div>
+    // Array of Objects Data (Day 24 & 25 Concept)
+    let myProjects = [
+      { title: "Dynamic Web App", category: "JavaScript / HTML", status: "Completed" },
+      { title: "Al-Khair Pharmacy Poster", category: "Graphic Design", status: "Delivered" },
+      { title: "Sports Graphics Layout", category: "Branding", status: "Active" }
+    ];
 
-      <div class="card">
-        <div>
-          <h3>JavaScript Mini-Apps</h3>
-          <p>Upcoming interactive tools, calculators, and DOM manipulation projects coming in Day 15+.</p>
-        </div>
-        <a href="#" class="btn" style="background-color: #6c757d;">Coming Soon ⏳</a>
-      </div>
+    // Render Projects on Screen (Day 22 & 25 Loop)
+    function renderProjects() {
+      let grid = document.getElementById("projectGrid");
+      grid.innerHTML = ""; // Clear existing
 
-    </div>
-  </div>
+      for (let i = 0; i < myProjects.length; i++) {
+        grid.innerHTML += 
+          "<div class='project-card'>" +
+            "<h4>" + myProjects[i].title + "</h4>" +
+            "<p><b>Category:</b> " + myProjects[i].category + "</p>" +
+            "<p style='color: green;'><b>Status:</b> " + myProjects[i].status + "</p>" +
+          "</div>";
+      }
+    }
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <p>&copy; 2026 Rana Mubashir. All Rights Reserved.</p>
-    <p class="footer-credit">Designed by Mubashir Rajput</p>
-  </div>
+    // Live Input Event (Day 26 Concept)
+    function updateLiveMessage() {
+      let val = document.getElementById("visitorName").value;
+      if (val.trim() === "") {
+        document.getElementById("previewName").innerText = "Visitor";
+      } else {
+        document.getElementById("previewName").innerText = val;
+      }
+    }
+  </script>
 
 </body>
 </html>
